@@ -93,7 +93,7 @@ public class DataServiceTests
     [Fact]
     public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
     {
-        var product = new Product();
+        var product = new ProductWithCategoryName();
         Assert.Equal(0, product.Id);
         Assert.Null(product.Name);
         Assert.Equal(0.0, product.UnitPrice);
