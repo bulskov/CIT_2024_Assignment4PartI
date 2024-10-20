@@ -167,7 +167,7 @@ public class WebServiceTests
     }
 
     /* /api/products */
-#if me
+
     [Fact]
     public async Task ApiProducts_ValidId_CompleteProduct()
     {
@@ -177,7 +177,7 @@ public class WebServiceTests
         Assert.Equal("Chai", product?.Value("name"));
         Assert.Equal("Beverages", product?.Value("categoryName"));
     }
-
+#if me
 
     [Fact]
     public async Task ApiProducts_InvalidId_CompleteProduct()
