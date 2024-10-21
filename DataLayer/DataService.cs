@@ -105,10 +105,10 @@ public class DataService : IDataService
         var product= db.Products.Include(x => x.Category)
         .Where(x => x.Category.Id == id)
         .ToList();
-        if (product == null)
+        /*if (product.Count == 0)
         {
             return null;
-        }
+        }*/
         var ProWithCatNamList = new List<ProductWithCategoryName>();
         foreach (var item in product)
         {

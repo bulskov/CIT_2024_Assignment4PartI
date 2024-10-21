@@ -26,3 +26,18 @@ Content-Type: application/json
 ###
 
 DELETE {{WebApi_HostAddress}}/api/categories/9
+
+###
+
+GET {{WebApi_HostAddress}}/api/products/1
+Accept: application/json
+
+###
+
+GET {{WebApi_HostAddress}}/api/products/category/1
+Accept: application/json
+
+###
+
+GET {{WebApi_HostAddress}}/api/products/category/1000001
+Accept: application/json

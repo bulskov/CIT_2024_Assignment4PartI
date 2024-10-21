@@ -177,7 +177,7 @@ public class WebServiceTests
         Assert.Equal("Chai", product?.Value("name"));
         Assert.Equal("Beverages", product?.Value("categoryName"));
     }
-#if me
+
 
     [Fact]
     public async Task ApiProducts_InvalidId_CompleteProduct()
@@ -227,7 +227,7 @@ public class WebServiceTests
         Assert.Equal(HttpStatusCode.NotFound, statusCode);
         Assert.Equal(0, products?.Count);
     }
-#endif
+
     // Helpers
 
     async Task<(JsonArray?, HttpStatusCode)> GetArray(string url)
