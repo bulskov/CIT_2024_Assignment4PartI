@@ -21,7 +21,7 @@ public class ProductsController : ControllerBase
         _linkGenerator = linkGenerator;
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name = nameof(GetProduct))]
     public IActionResult GetProduct(int id)
     {
         var product = _dataService.GetProduct(id);
@@ -42,10 +42,15 @@ public class ProductsController : ControllerBase
 
         if (product.Count == 0)
         {
-            return NotFound(product);
+            return NotFound(new List<ProductModel>());
+        }
+        IList<ProductModel> model = new List<ProductModel>();
+        foreach(ProductWithCategoryName p in product)
+        {
+             model.Add(CreateProductModel(p));
         }
 
-        return Ok(product);
+        return Ok(model);
     }
 
     [HttpGet]
@@ -55,10 +60,16 @@ public class ProductsController : ControllerBase
 
         if (product.Count == 0)
         {
-            return NotFound(product);
+            return NotFound(new List<ProductModel>());
         }
 
-        return Ok(product);
+        IList<ProductModel> model = new List<ProductModel>();
+        foreach (ProductWithCategoryName p in product)
+        {
+            model.Add(CreateProductModel(p));
+        }
+
+        return Ok(model);
     }
 
     
